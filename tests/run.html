@@ -1,0 +1,60 @@
+<!doctype html><meta charset="utf-8"><title>SWAT Tests</title>
+<pre id="out"></pre>
+<script type="module">
+import { StorageAdapter } from '/lib/storage.js';
+import { VFS } from '/lib/vfs.js';
+import { CommandRegistry } from '/lib/registry.js';
+import { Executor } from '/lib/executor.js';
+import { LineChart } from '/lib/canvas-charts.js';
+import createTable from '/lib/table-component.js';
+
+const out = [];
+function ok(cond,msg){ out.push((cond?'PASS':'FAIL')+' '+msg); }
+
+async function run(){
+  try {
+    const s = new StorageAdapter({ prefix: 'tst:' });
+    await s.set('k1', { a: 1 }); const g = await s.get('k1'); ok(g && g.a===1, 'storage set/get');
+    await s.delete('k1'); ok((await s.get('k1'))===null, 'storage delete');
+
+    const vfs = new VFS(s);
+    await vfs.write('/a.txt','one\ntwo\n');
+    const t = await vfs.read('/a.txt');
+    ok(t.includes('two'), 'vfs read/write');
+    const hist = vfs.state.history || [];
+    vfs.historyPush('echo hi'); ok(vfs.state.history.includes('echo hi'), 'vfs history push');
+
+    const registry = new CommandRegistry();
+    registry.register('echo', async ({args}) => ({ stdout: args.join(' ') + '\n' }));
+    const ex = new Executor(registry, vfs);
+    const r = await ex.runLine('echo hello');
+    ok(r.stdout.trim() === 'hello', 'executor echo');
+
+    // chart (mount offscreen)
+    const off = document.createElement('div'); document.body.appendChild(off);
+    const chart = new LineChart(off, { labels:['a','b'], datasets:[{label:'S',data:[1,2]}] }, {});
+    chart.update({ labels:['a','b','c'], datasets:[{label:'S',data:[1,2,3]}] });
+    const img = chart.toDataURL();
+    ok(img && img.startsWith('data:image/png'), 'chart toDataURL');
+
+    // table
+    const table = createTable({ columns:[{key:'id',label:'ID'},{key:'n',label:'Name'}], rows:[{id:1,n:'a'},{id:2,n:'b'}] });
+    document.body.appendChild(table);
+    ok(true, 'table mounted');
+
+    // basic plugin load test (optional)
+    try {
+      const p = await import('/plugins/example-hello.js');
+      await p.install({ registerComponent: ()=>{} });
+      ok(true, 'plugin imported');
+    } catch(e){
+      ok(false, 'plugin import failed: ' + e.message);
+    }
+  } catch (e) {
+    out.push('EXCEPTION ' + e.stack);
+  } finally {
+    document.getElementById('out').textContent = out.join('\n');
+  }
+}
+run();
+</script>

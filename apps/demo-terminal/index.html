@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SWAT — Terminal demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="../../lib/swat-ui.css">
+  <style>
+    #term { height:60vh; overflow:auto; padding:12px; white-space:pre-wrap; background: #00121a; border-radius:8px; }
+    .stdout { color: #cfe6ff; }
+    .stderr { color: #ffb3b3; }
+    .prompt { display:flex; gap:8px; align-items:center; margin-top:8px; }
+    input#cmd { width:100%; padding:8px; background:transparent; border:1px solid rgba(255,255,255,0.04); color:inherit; }
+  </style>
+</head>
+<body class="container">
+  <div class="card">
+    <h3 class="h1">Terminal Demo</h3>
+    <div id="term"></div>
+    <div class="prompt">
+      <div class="muted" id="cwd">/</div>
+      <input id="cmd" autocomplete="off" />
+    </div>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
