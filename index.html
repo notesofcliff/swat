@@ -55,37 +55,71 @@
   <div class="card">
     <h2 >Form Elements</h2>
     <p>SWAT provides styled form components that automatically adapt to themes. Combine button classes with status utilities for themed actions.</p>
-    <div class="row">
-      <div class="col">
-        <button class="btn">Primary Button</button>
-        <button class="btn danger">Danger Button</button>
-        <button class="btn warn">Warning Button</button>
-        <button class="btn info">Info Button</button>
-        <button class="btn success">Success Button</button>
-      </div>
-      <div class="col">
-        <input type="text" class="input" placeholder="Text input field">
-      </div>
-    </div>
-    <div class="row" style="margin-top: 16px;">
-      <div class="col">
-        <select class="input">
+    <form>
+      <div class="form-group">
+        <h1>Wide Form Group</h1>
+        <label for="wide-textinput">Text Input</label>
+        <input id="wide-textinput" type="text" class="input" placeholder="Text input field">
+        <label for="wide-selectinput">Select</label>
+        <select id="wide-selectinput" class="input">
           <option>Option 1</option>
           <option>Option 2</option>
           <option>Option 3</option>
         </select>
+        <label>Checkboxes</label>
+        <label><input type="checkbox"> Option A</label>
+        <label><input type="checkbox"> Option B</label>
+        <label>Radio Buttons</label>
+        <label><input name="wide-radio" type="radio" value="1"> Choice 1</label>
+        <label><input name="wide-radio" type="radio" value="2"> Choice 2</label>
+        <button class="btn">Primary</button>
+        <button class="btn danger">Danger</button>
       </div>
-      <div class="col">
-        <textarea class="input" placeholder="Textarea"></textarea>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label>Buttons</label>
+            <div>
+              <button class="btn">Primary</button>
+              <button class="btn danger">Danger</button>
+              <button class="btn warn">Warn</button>
+              <button class="btn info">Info</button>
+              <button class="btn success">Success</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="textinput">Text Input</label>
+            <input id="textinput" type="text" class="input" placeholder="Text input field">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="selectinput">Select</label>
+            <select id="selectinput" class="input">
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="textarea">Textarea</label>
+            <textarea id="textarea" class="input" placeholder="Textarea"></textarea>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label>Checkboxes</label>
+            <label><input type="checkbox"> Option A</label>
+            <label><input type="checkbox"> Option B</label>
+          </div>
+          <div class="form-group">
+            <label>Radio Buttons</label>
+            <label><input name="radio" type="radio" value="1"> Choice 1</label>
+            <label><input name="radio" type="radio" value="2"> Choice 2</label>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        <label><input type="checkbox"> Checkbox</label>
-      </div>
-      <div class="col">
-        <label><input name="radio" type="radio" value="1"> Radio</label><br />
-        <label><input name="radio" type="radio" value="2"> Radio</label>
-      </div>
-    </div>
+    </form>
   </div>
 
   <div class="card">
