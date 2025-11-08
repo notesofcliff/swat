@@ -88,8 +88,10 @@ export default async function(swat) {
       } catch (e) {
         // File doesn't exist, start with empty array
       }
-      history.push(result);
-      await swat.vfs.write('/rest/history.json', JSON.stringify(history.slice(-10))); // Keep last 10
+  history.push(result);
+  const newHistory = history.slice(-10);
+  await swat.vfs.write('/rest/history.json', JSON.stringify(newHistory)); // Keep last 10
+  swat.eventBus.emit('history:loaded', newHistory);
     } catch (e) {
       swat.log('error', 'Request failed:', e);
       swat.eventBus.emit('response:error', e.message);
