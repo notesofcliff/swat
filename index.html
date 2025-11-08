@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SWAT UI Showcase</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="./lib/swat-ui.css">
+</head>
+<body class="container">
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <div class="card">
+    <h1 >SWAT UI Showcase</h1>
+    <p>This page demonstrates the various UI components and utilities available in the SWAT framework.</p>
+    <p><strong>Theme Toggle:</strong> Click the "Toggle Theme" button in the top-right to switch between light and dark modes. Your preference is automatically saved using SWAT's StorageAdapter and will persist between page visits.</p>
+  </div>
+
+  <div class="card">
+    <h2>Typography & Status Utilities</h2>
+    <p>SWAT provides utility classes for status-based styling. Apply <code>.danger</code>, <code>.warn</code>, <code>.info</code>, or <code>.success</code> to any element for consistent color theming that adapts to light/dark modes.</p>
+    <h1 class="danger">Danger Heading 1</h1>
+    <h1 class="warn">Warn Heading 1</h1>
+    <h1 class="info">Info Heading 1</h1>
+    <h1 class="success">Success Heading 1</h1>
+    <h1>Normal Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+    <p>This is a paragraph of text. It can contain <code>inline code</code> snippets.</p>
+    <p class="muted">This is muted text, for less important information.</p>
+  </div>
+  <div class="card danger">
+    <h2 >Danger Section</h2>
+    <p>Status utility classes can be applied to containers for themed backgrounds. This card uses <code>class="card danger"</code>.</p>
+    <p class="muted">This is muted text, for less important information.</p>
+  </div>
+  <div class="card warn">
+    <h2 >Warning Section</h2>
+    <p>Combine status classes with other components: <code>class="btn warn"</code> creates warning-themed buttons.</p>
+    <p class="muted">This is muted text, for less important information.</p>
+  </div>
+  <div class="card info">
+    <h2 >Info Section</h2>
+    <p>Status classes work with any element - headings, paragraphs, or custom components.</p>
+    <p class="muted">This is muted text, for less important information.</p>
+  </div>
+  <div class="card success">
+    <h2 >Success Section</h2>
+    <p>All status colors automatically adapt when switching between light and dark themes.</p>
+    <p class="muted">This is muted text, for less important information.</p>
+  </div>
+
+  <div class="card">
+    <h2 >Form Elements</h2>
+    <p>SWAT provides styled form components that automatically adapt to themes. Combine button classes with status utilities for themed actions.</p>
+    <div class="row">
+      <div class="col">
+        <button class="btn">Primary Button</button>
+        <button class="btn danger">Danger Button</button>
+        <button class="btn warn">Warning Button</button>
+        <button class="btn info">Info Button</button>
+        <button class="btn success">Success Button</button>
+      </div>
+      <div class="col">
+        <input type="text" class="input" placeholder="Text input field">
+      </div>
+    </div>
+    <div class="row" style="margin-top: 16px;">
+      <div class="col">
+        <select class="input">
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+      </div>
+      <div class="col">
+        <textarea class="input" placeholder="Textarea"></textarea>
+      </div>
+      <div class="col">
+        <label><input type="checkbox"> Checkbox</label>
+      </div>
+      <div class="col">
+        <label><input name="radio" type="radio" value="1"> Radio</label><br />
+        <label><input name="radio" type="radio" value="2"> Radio</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>CSS Utilities</h2>
+    <p>SWAT includes comprehensive utility classes for rapid UI development. These classes follow consistent naming patterns and work with the theme system.</p>
+    
+    <h3>Spacing</h3>
+    <p>Use margin and padding utilities (<code>.m-1</code> through <code>.m-5</code>, <code>.p-1</code> through <code>.p-5</code>) for consistent spacing. Directional variants like <code>.mt-3</code> (margin-top) are also available.</p>
+    <div class="d-flex flex-wrap">
+      <div class="p-2 border m-1">.p-2 .border .m-1</div>
+      <div class="p-3 border m-2 bg-info text-center">.p-3 .m-2 .text-center</div>
+      <div class="p-4 border m-3">.p-4 .m-3</div>
+    </div>
+
+    <h3>Display & Layout</h3>
+    <p>Control layout with display utilities (<code>.d-flex</code>, <code>.d-block</code>) and flexbox helpers (<code>.justify-content-center</code>, <code>.align-items-center</code>, <code>.flex-column</code>).</p>
+    <div class="d-flex justify-content-between align-items-center border p-3 mb-3">
+      <div>Flex item 1</div>
+      <div>Flex item 2</div>
+      <div>Flex item 3</div>
+    </div>
+    <p class="text-center">This text is centered using .text-center</p>
+    <div class="d-flex flex-column">
+      <div class="border p-2 mb-2">Column item 1</div>
+      <div class="border p-2 mb-2">Column item 2</div>
+    </div>
+
+    <h3>Text Styling</h3>
+    <p>Style text with alignment (<code>.text-center</code>, <code>.text-right</code>), transformation (<code>.text-uppercase</code>, <code>.text-lowercase</code>), and weight utilities (<code>.font-weight-bold</code>).</p>
+    <p class="text-uppercase font-weight-bold">This text is uppercase and bold</p>
+    <p class="text-lowercase">THIS TEXT IS LOWERCASE</p>
+    <p class="text-capitalize">this text is capitalized</p>
+
+    <h3>Sizing</h3>
+    <p>Set element dimensions with width and height utilities (<code>.w-25</code>, <code>.w-50</code>, <code>.h-100</code>).</p>
+    <div class="d-flex">
+      <div class="w-25 border p-2 m-1">25% width</div>
+      <div class="w-50 border p-2 m-1">50% width</div>
+      <div class="w-25 border p-2 m-1">25% width</div>
+    </div>
+
+    <h3>Borders</h3>
+    <p>Add borders with <code>.border</code> and directional variants (<code>.border-top</code>, <code>.border-bottom</code>). Control border radius with <code>.border-radius-sm</code>, <code>.border-radius</code>, <code>.border-radius-lg</code>.</p>
+    <div class="border p-3 mb-2">Normal border</div>
+    <div class="border-top p-3 mb-2">Top border only</div>
+    <div class="border-radius-lg border p-3 mb-2">Large border radius</div>
+
+    <h3>Position & Visibility</h3>
+    <p>Control element positioning (<code>.position-relative</code>, <code>.position-absolute</code>) and visibility (<code>.invisible</code> hides but keeps space, <code>.sr-only</code> for screen readers).</p>
+    <div class="position-relative border p-4 mb-3">
+      Relative positioned container
+      <div class="position-absolute" style="top: 10px; right: 10px; background: var(--btn-bg); color: var(--btn-text); padding: 4px 8px; border-radius: 4px;">
+        Absolutely positioned
+      </div>
+    </div>
+    <div class="border p-3 mb-2">
+      <span>Visible text</span>
+      <span class="invisible">Invisible text (still takes space)</span>
+      <span>More visible text</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 >Charts</h2>
+    <p>SWAT provides canvas-based charting components. Import <code>LineChart</code>, <code>BarChart</code>, and <code>PieChart</code> from <code>./lib/canvas-charts.js</code> and initialize with container elements and data.</p>
+    <div class="row">
+      <div class="col">
+        <h3 >Line Chart</h3>
+        <div id="linechart"></div>
+      </div>
+      <div class="col">
+        <h3 >Bar Chart</h3>
+        <div id="barchart"></div>
+      </div>
+      <div class="col">
+        <h3 >Pie Chart</h3>
+        <div id="piechart"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 >Table Component</h2>
+    <p>SWAT includes a sortable table component. Import <code>createTable</code> from <code>./lib/table-component.js</code> and pass column definitions and row data to generate interactive tables. Tables automatically take full width with proper spacing and borders.</p>
+    <div id="table" class="w-100 h-100" style="min-height: 400px; overflow: auto;"></div>
+  </div>
+
+  <script type="module">
+    // SWAT components are imported as ES modules
+    import { LineChart, BarChart, PieChart } from './lib/canvas-charts.js';
+    import createTable from './lib/table-component.js';
+    import { StorageAdapter } from './lib/storage.js';
+
+    // Initialize storage for theme persistence
+    const storage = new StorageAdapter();
+
+    // Load saved theme on page load
+    (async () => {
+      const savedTheme = await storage.get('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+
+    // Theme Toggler
+    window.toggleTheme = async function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      await storage.set('theme', newTheme);
+    }
+
+    // Chart Data
+    const lineChartData = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      datasets: [{
+        label: 'Sales',
+        data: [12, 19, 3, 5, 2],
+        color: '#007bff'
+      }]
+    };
+
+    const barChartData = {
+      labels: ['A', 'B', 'C'],
+      datasets: [{
+        label: 'Dataset 1',
+        data: [10, 20, 30],
+        color: '#ff6384'
+      }, {
+        label: 'Dataset 2',
+        data: [15, 25, 35],
+        color: '#36a2eb'
+      }]
+    };
+
+    const pieChartData = {
+      labels: ['Red', 'Blue', 'Yellow'],
+      datasets: [{
+        data: [300, 50, 100],
+        colors: ['#ff6384', '#36a2eb', '#ffce56']
+      }]
+    };
+
+    // Initialize Charts
+    new LineChart(document.getElementById('linechart'), lineChartData);
+    new BarChart(document.getElementById('barchart'), barChartData);
+    new PieChart(document.getElementById('piechart'), pieChartData);
+
+    // Table Data
+    const tableData = {
+      columns: [
+        { label: 'ID', key: 'id' },
+        { label: 'Name', key: 'name' },
+        { label: 'Email', key: 'email' },
+        { label: 'Sales', key: 'sales' },
+        { label: 'Department', key: 'department' },
+        { label: 'Status', key: 'status' }
+      ],
+      rows: [
+        { id: 1, name: 'Alice Johnson', email: 'alice@example.com', sales: 150, department: 'Engineering', status: 'Active' },
+        { id: 2, name: 'Bob Smith', email: 'bob@example.com', sales: 200, department: 'Sales', status: 'Active' },
+        { id: 3, name: 'Charlie Brown', email: 'charlie@example.com', sales: 120, department: 'Marketing', status: 'Inactive' },
+        { id: 4, name: 'David Wilson', email: 'david@example.com', sales: 250, department: 'Engineering', status: 'Active' },
+        { id: 5, name: 'Eva Martinez', email: 'eva@example.com', sales: 180, department: 'Sales', status: 'Active' },
+        { id: 6, name: 'Frank Garcia', email: 'frank@example.com', sales: 95, department: 'Support', status: 'Active' },
+        { id: 7, name: 'Grace Lee', email: 'grace@example.com', sales: 210, department: 'Engineering', status: 'Active' },
+        { id: 8, name: 'Henry Davis', email: 'henry@example.com', sales: 175, department: 'Marketing', status: 'Inactive' },
+        { id: 9, name: 'Ivy Chen', email: 'ivy@example.com', sales: 220, department: 'Sales', status: 'Active' },
+        { id: 10, name: 'Jack Taylor', email: 'jack@example.com', sales: 135, department: 'Support', status: 'Active' },
+        { id: 11, name: 'Kate Anderson', email: 'kate@example.com', sales: 195, department: 'Engineering', status: 'Active' },
+        { id: 12, name: 'Liam Thomas', email: 'liam@example.com', sales: 160, department: 'Sales', status: 'Active' },
+        { id: 13, name: 'Maya Rodriguez', email: 'maya@example.com', sales: 240, department: 'Marketing', status: 'Active' },
+        { id: 14, name: 'Noah White', email: 'noah@example.com', sales: 110, department: 'Support', status: 'Inactive' },
+        { id: 15, name: 'Olivia Harris', email: 'olivia@example.com', sales: 185, department: 'Engineering', status: 'Active' }
+      ]
+    };
+
+    // Initialize Table
+    const tableContainer = document.getElementById('table');
+    const tableComponent = createTable(tableData);
+    tableContainer.appendChild(tableComponent);
+
+  </script>
+</body>
+</html>
