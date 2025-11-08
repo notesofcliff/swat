@@ -1,12 +1,13 @@
 <!doctype html><meta charset="utf-8"><title>SWAT Tests</title>
 <pre id="out"></pre>
 <script type="module">
-import { StorageAdapter } from '/lib/storage.js';
-import { VFS } from '/lib/vfs.js';
-import { CommandRegistry } from '/lib/registry.js';
-import { Executor } from '/lib/executor.js';
-import { LineChart } from '/lib/canvas-charts.js';
-import createTable from '/lib/table-component.js';
+import { StorageAdapter } from '../lib/storage.js';
+import { VFS } from '../lib/vfs.js';
+import { CommandRegistry } from '../lib/registry.js';
+import { Executor } from '../lib/executor.js';
+import { LineChart } from '../lib/canvas-charts.js';
+import createTable from '../lib/table-component.js';
+import { SWAT } from '../lib/swat.js';
 
 const out = [];
 function ok(cond,msg){ out.push((cond?'PASS':'FAIL')+' '+msg); }
@@ -16,6 +17,8 @@ async function run(){
     const s = new StorageAdapter({ prefix: 'tst:' });
     await s.set('k1', { a: 1 }); const g = await s.get('k1'); ok(g && g.a===1, 'storage set/get');
     await s.delete('k1'); ok((await s.get('k1'))===null, 'storage delete');
+
+    const swat = new SWAT({ storage: s });
 
     const vfs = new VFS(s);
     await vfs.write('/a.txt','one\ntwo\n');
@@ -44,11 +47,12 @@ async function run(){
 
     // basic plugin load test (optional)
     try {
-      const p = await import('/plugins/example-hello.js');
-      await p.install({ registerComponent: ()=>{} });
-      ok(true, 'plugin imported');
+      const p = await import('../plugins/example-hello.js');
+      await swat.loadPluginFromModule(p, 'example-hello');
+      ok(swat.plugins.has('example-hello'), 'plugin loaded');
+      ok(swat.getComponent('hello-widget') !== undefined, 'plugin component registered');
     } catch(e){
-      ok(false, 'plugin import failed: ' + e.message);
+      ok(false, 'plugin load failed: ' + e.message);
     }
   } catch (e) {
     out.push('EXCEPTION ' + e.stack);
