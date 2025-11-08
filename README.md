@@ -4,9 +4,11 @@
 
 A zero-build, vanilla JavaScript framework for static web apps. Includes utilities for charts, tables, virtual filesystem, event bus, plugins, and more.
 
+**[🚀 Live Demo](https://notesofcliff.github.io/swat/)** - Try SWAT in your browser
+
 This is the main repository for the SWAT framework. For related projects, see:
-- [**swatctl**](../swatctl): A command-line tool for managing SWAT projects.
-- [**Word Processor**](../word): An example application built with SWAT.
+- [**swatctl**](https://github.com/notesofcliff/swatctl): A command-line tool for managing SWAT projects.
+- [**Word Processor**](https://github.com/notesofcliff/swat-word): An example application built with SWAT which is [live on Github Pages](https://notesofcliff.github.io/swat-word/).
 
 ## Development Workflow
 
@@ -15,7 +17,7 @@ The recommended way to start a new SWAT project is by using the [**swatctl**](..
 1.  **Install `swatctl`**:
     ```bash
     # Clone the swatctl repo and install it in editable mode
-    git clone https://github.com/your-username/swatctl.git
+    git clone git@github.com:notesofcliff/swatctl.git
     cd swatctl
     pip install -e ".[test]"
     ```
