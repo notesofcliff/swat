@@ -1,6 +1,6 @@
 # SWAT — Static Web App Toolkit — Full specification (vanilla, zero-build)
 
-Love this. Below is a single, self-contained **design + spec + ready code** to build SWAT: a small, vanilla-JS, zero-build framework and template that you can copy / edit / host on GitHub Pages. It includes:
+It includes:
 
 * a **standard library** (CSS + JS utilities) supporting charts (canvas), tables, cards/panels, plugin helpers, and more
 * **stable interfaces** for a virtual filesystem (VFS) and storage adapters (localStorage / IndexedDB stub) — pluggable and testable
