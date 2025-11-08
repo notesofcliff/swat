@@ -5,7 +5,7 @@ import { Executor } from '../../lib/executor.js';
 
 export default async function(swat) {
   // Load plugin for response formatting
-  await swat.loadPluginFromUrl('../../plugins/rest-formatter.js');
+  await swat.loadPluginFromUrl('../plugins/rest-formatter.js');
 
   // Create registry and executor
   const registry = new CommandRegistry();
